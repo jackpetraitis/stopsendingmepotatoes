@@ -1,0 +1,33 @@
+body{
+    background-image: url("../img/sweetFuckinPotatoes.JPG");
+}
+
+.sweetHeader{
+    background-color: #d87c3b;
+    color: #FFFFFF;
+}
+
+.outletForAnger{
+    background-color: #f8f8f8;
+    height: 100%;
+}
+
+.colorMeBadd > ul > li > a {
+    color: #FFFFFF;
+}
+
+.colorMyHead {
+    color: #FFFFFF;
+}
+
+.headieParagraphs > h3 {
+    display: inline-block;
+}
+
+.headieParagraphs > p {
+    display: inline-block;
+}
+
+.uselessInformation{
+
+}

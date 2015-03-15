@@ -1,36 +1,26 @@
-starter-kit
+stop sending me potatoes
 ===========
 
-A starter kit for Ember
+A website build with Ember, Node, and MySQL
 
-Your Ember.js project is almost ready! Here's how to get started:
+Installation
+============
 
-- Start writing your app in `js/app.js`.
+Download Node and NPM. Run npm install and hopefully it will get gulp for you. 
 
-- Describe your application HTML in `index.html`.
 
-- During development, you can link to `js/libs/ember-*.js` to get the
-  unminified version of Ember.js.
+Web API
+=======
 
-- Add CSS to `css/style.css`.
-
-- Open `index.html` in your browser.
+This website project also includes a RESTful web API written in Node using Express. I have plans on attacking my own website and buffering its security defenses for XSRF, XSS, injection, etc later on. That is why the server API source code is not included in this public repository. Once it is safe I will add it to the repo.
 
 Tests
 =====
 
-This starter kit comes with an integration test sample, written for QUnit runner. 
+This website was built from an Ember starter-kit and therefore includes some QUnit test framework. I haven't written any tests for this website but I imagine most of them will be on the backend testing the framework. I haven't decided on the usefulness of having some front end tests yet.
 
-You can run the tests by opening the `index.html?test` page in your browser.
-
-The test is located in the `tests/tests.js` file. You can see how such an 
-integration test should be written, using QUnit assertions and ember-testing helpers.
-
-For more information about ember-testing package see [ember-testing](http://emberjs.com/guides/testing/integration/).
-
-For more information about the QUnit testing framework, see [QUnit](http://qunitjs.com/).
 
 Contact
-====
+=======
+written by jackpetraitis@gmail.com
 
-[www.emberjs.com](http://www.emberjs.com)
