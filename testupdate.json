@@ -1,0 +1,15 @@
+{
+	"meal":
+	{
+		"MealType":"Dinner",
+		"RecipeTitle":"TestDinner",
+		"PrepTime":15,
+		"CookTime":45,
+		"ServingYield":6,
+		"SourceFormat":"Wassup",
+		"SourceInformation":"Yeye",
+		"Ingredients":"2 pounds of butt, 2 pounds of butt, 2 pounds of butt, 2 pounds of butt, 2 pounds of ass",
+		"Instructions":"overachievers",
+		"CookingMethod":"Baked"	
+	}
+}

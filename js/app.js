@@ -11,7 +11,7 @@ App.Router.map(function() {
 
 App.Store = DS.Store.extend();
 DS.RESTAdapter.reopen({
-
+    host: 'http://stopsendingmepotatoes.com:9001'
 });
 var attr = DS.attr;
 

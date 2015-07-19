@@ -1,0 +1,20 @@
+{
+  "name": "stopsendingmepotatoes.com",
+  "version": "0.0.1",
+  "description": "Stop sending me potatoes",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "www.stopsendingmepotatoes.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember-data": "~0.0.14"
+  }
+}

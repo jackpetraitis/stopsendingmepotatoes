@@ -1,0 +1,34 @@
+# Custom Excludes #
+###################
+.idea/
+schema/
+server.js
+testpost.json
+testupdate.json
+
+
+# Compiled source #
+###################
+*.exe
+*.dll
+
+# Packages #
+############
+*.7z
+*.zip
+
+# Logs and databases and scripts #
+##################################
+*.log
+*.sql
+
+# OS Generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
