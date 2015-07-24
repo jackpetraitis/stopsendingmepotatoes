@@ -21,7 +21,27 @@ App.RecipeModel = Ember.Object.extend({
     Ingredients: null,
     CookingMethod: null
 });
+App.Store = Ember.Object.extend({
+    read: function(id){
+        var message = null;
+        var xhr = $.ajax({
+            url: 'http://stopsendingmepotatoes.com:9001/potatos',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ 'id': id }),
+            type: 'POST',
+            async: false,
+            success: function(data){
+                message = data;
+            }
+        });
+        if(xhr.status != 200){
+            message = { errorCode: xhr.status, errorMessage: xhr.statusText};
+        }
 
+        return message;
+    }
+})
 
 
 
