@@ -38,23 +38,36 @@ app.get('/potatos', function(req,res){
 	res.writeHead(200, {'Content-Type': 'application/json'});
     connection.query(queryString, function(err, rows, fields) {
         if (err) throw err;
-        res.write('{');
+        res.write('{"potatos": [');
         for (var i in rows) {
             if(i<rows.length-1){
               //print first with comma
-              res.write('"response' + i + '": ');
               res.write(JSON.stringify(rows[i]) +',');
             }else{
               //print last with no comma
-              res.write('"response' + i + '": ');
               res.write(JSON.stringify(rows[i]));
             }            
 			      console.log('Rows: ', rows[i]);
         }
-        res.write('}');
+        res.write(']}');
 		res.end();
     });
 	
+});
+
+app.get('/potatos/:id', function(req, res){
+    var queryString = 'SELECT * FROM recipes '+
+       'WHERE id = ' + req.params.id;
+    console.log(queryString);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    connection.query(queryString, function(err, rows, fields) {
+        if (err) throw err;
+        for(var i in rows){
+          res.write(JSON.stringify(rows[i]));
+        }
+    res.end();
+    });
+
 });
 
 app.put('/potatos/:id', function(req, res){

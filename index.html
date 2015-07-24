@@ -22,7 +22,7 @@
             </div>
             <div class="collapse navbar-collapse colorMeBadd" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>{{#link-to 'potatoes'}}Potatoes{{/link-to}}</li>
+                    <li>{{#link-to 'Potatoes'}}Potatoes{{/link-to}}</li>
                     <li>{{#link-to 'why'}}Why{{/link-to}}</li>
                     <li><a href="http://create.stopsendingmepotatoes.com">Create</a></li>
                 </ul>
@@ -37,7 +37,7 @@
      </div>
   </script>
 
-  <script type="text/x-handlebars" id="potatoes">
+  <script type="text/x-handlebars" id="Potatoes">
       <div class="container-fluid">
           <div class="row-fluid">
               <div class="span3">
@@ -47,11 +47,11 @@
                       </thead>
 
                       <tbody>
-                      {{#each potato}}
+                      {{#each potato in model}}
                       <tr>
                           <td>
-                              {{#link-to 'Potatoe' this}}
-                              {{title}} <small class='muted'>by {{author.name}}</small>
+                              {{#link-to 'Potato' potato.id}}
+                              {{potato.RecipeTitle}} <small class='muted'>for {{potato.MealType}}</small>
                               {{/link-to}}
                           </td>
                       </tr>
@@ -70,6 +70,32 @@
                   {{outlet}}
               </div>
           </div>
+      </div>
+  </script>
+
+  <script type="text/x-handlebars" id="Potato">
+      <h1>{{RecipeTitle}}</h1>
+      <h2>A {{MealType}} by <small class='muted'>(Sent to me: )</small></h2>
+
+      <hr>
+
+      <div class="uselessInformation">
+          <h6>Cooking Method: {{CookingMethod}}</h6>
+          <h5>Communication Method: {{SourceFormat}}</h5>
+          <h5>Sourced From: {{SourceInformation}}</h5>
+          <h6>Prep Time: {{PrepTime}} minutes - CookTime {{CookTime}} minutes - ServingYield - {{ServingYield}} servings</h6>
+      </div>
+
+      <hr>
+
+      <div class='intro'>
+          <h3>Ingredients:</h3>
+          {{Ingredients}}
+      </div>
+
+      <div class='below-the-fold'>
+          <h3>Instructions:</h3>
+          {{Instructions}}
       </div>
   </script>
 

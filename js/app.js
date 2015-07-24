@@ -2,46 +2,39 @@ App = Ember.Application.create();
 
 App.Router.map(function() {
     this.resource('why');
-    this.resource('potatoes');
+    this.resource('Potatoes');
+    this.resource('Potato',  {path:'/potato/:potato_id'});
 });
 
-App.Store = DS.Store.extend();
 DS.RESTAdapter.reopen({
     host: 'http://stopsendingmepotatoes.com:9001'
 });
 var attr = DS.attr;
-App.RecipeModel = Ember.Object.extend({
-    MealType: null,
-    RecipeTitle: null,
-    PrepTime: null,
-    CookTime: null,
-    ServingYield: null,
-    SourceFormat: null,
-    SourceInformation: null,
-    Ingredients: null,
-    CookingMethod: null
+App.Potato = DS.Model.extend({
+    MealType: DS.attr('string'),
+    RecipeTitle: DS.attr('string'),
+    PrepTime: DS.attr('string'),
+    CookTime: DS.attr('string'),
+    ServingYield: DS.attr('string'),
+    SourceFormat: DS.attr('string'),
+    SourceInformation: DS.attr('string'),
+    Ingredients: DS.attr('string'),
+    CookingMethod: DS.attr('string')
 });
-App.Store = Ember.Object.extend({
-    read: function(id){
-        var message = null;
-        var xhr = $.ajax({
-            url: 'http://stopsendingmepotatoes.com:9001/potatos',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({ 'id': id }),
-            type: 'POST',
-            async: false,
-            success: function(data){
-                message = data;
-            }
-        });
-        if(xhr.status != 200){
-            message = { errorCode: xhr.status, errorMessage: xhr.statusText};
-        }
 
-        return message;
+App.PotatoesRoute = Ember.Route.extend({
+    model: function(){
+        return this.store.findAll('potato');
     }
-})
+});
+App.PotatoRoute = Ember.Route.extend({
+    model: function(params){
+        return this.store.find('potatos', params.id);
+    }
+});
+App.PotatoesController = Ember.Controller.extend({
+    
+});
 
 
 
