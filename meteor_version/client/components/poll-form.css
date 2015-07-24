@@ -1,5 +1,10 @@
 .poll-form 			{
 	margin-bottom:30px; 
+	background:#EEE;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	border-radius: 6px;
 }
 .question-group 	{
 	margin-bottom:20px;
