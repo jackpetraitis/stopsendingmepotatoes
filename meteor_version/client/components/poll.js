@@ -22,6 +22,21 @@ Template.poll.events({
       { $inc: action }
     );
 
+  },
+
+  'click .remove': function(event){
+    console.log('clicked on remove');
+    event.preventDefault();
+
+    var pollElem = $(event.currentTarget).parent('.poll');
+    var pollID = $(event.currentTarget).parent('.poll').data('id');
+    console.log('pollID: '+pollID);
+    console.log(pollElem);
+    $(pollElem[0]).delay(5000).fadeOut(400);
+    Polls.remove(
+      { _id: pollID }
+    );
+
   }
 
 });

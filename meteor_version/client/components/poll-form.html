@@ -2,24 +2,42 @@
 
 <form class="poll-form"> 
     <div class="form-group question-group">
-        <label>Question</label>
-        <input type="text" name="question" class="form-control" placeholder="Your Question">
+        <label>Create a recipe here my friend.</label>
+        <input type="text" name="RecipeName" class="form-control" placeholder="Recipe Name">
     </div>
 
     <div class="form-group">
-        <label>Choice #1</label>
-        <input type="text" name="choice1" class="form-control" placeholder="Choice #1">
+        <label>Meal Type</label>
+        <select name="MealType">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>            
+            <option value="Dessert">Dessert</option>
+            <option value="Other">Other</option>
+        </select>
     </div>
     <div class="form-group">
-        <label>Choice #2</label>
-        <input type="text" name="choice2" class="form-control" placeholder="Choice #2">
+        <label>Prep Time</label>
+        <input type="text" name="PrepTime" class="form-control" placeholder="Prep Time">
     </div>
     <div class="form-group">
-        <label>Choice #3</label>
-        <input type="text" name="choice3" class="form-control" placeholder="Choice #3">
+        <label>Cooking Time</label>
+        <input type="text" name="CookTime" class="form-control" placeholder="Cooking Time">
+    </div>
+    <div class="form-group">
+        <label>Servings</label>
+        <input type="text" name="Servings" class="form-control" placeholder="Servings">
+    </div>
+    <div class="form-group">
+        <label>Ingredients</label>
+        <input type="text" name="Ingredients" class="form-control" placeholder="Ingredients">
+    </div>
+    <div class="form-group">
+        <label>Instructions</label>
+        <input type="textarea" name="Instructions" class="form-control" placeholder="Instructions">
     </div>
 
-    <button type="submit" class="btn btn-lg btn-primary btn-block">Create Poll</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Create Recipe</button>
 </form>
 
 </template>

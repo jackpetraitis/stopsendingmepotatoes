@@ -8,11 +8,14 @@ Template.pollForm.events({
 
     // get the data we need from the form
     var newPoll = {
-      question: event.target.question.value,
+      RecipeName: event.target.RecipeName.value,
       choices: [
-        {  text: event.target.choice1.value, votes: 0 },
-        {  text: event.target.choice2.value, votes: 0 },
-        {  text: event.target.choice3.value, votes: 0 }
+        {  text: event.target.MealType.value },
+        {  text: event.target.PrepTime.value },
+        {  text: event.target.CookTime.value },
+        {  text: event.target.Servings.value },
+        {  text: event.target.Ingredients.value },
+        {  text: event.target.Instructions.value }
       ]
     };    
      
