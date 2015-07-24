@@ -1,10 +1,24 @@
 console.log('this script does something at the very least');
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
 var mysql = require('mysql'),
     express = require('express'),
     http = require('http'),
     app = express(),
 	  bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(allowCrossDomain);
 var server = http.createServer(app).listen(9001);
 
 console.log('potato api listening on port 9001');
@@ -24,11 +38,20 @@ app.get('/potatos', function(req,res){
 	res.writeHead(200, {'Content-Type': 'application/json'});
     connection.query(queryString, function(err, rows, fields) {
         if (err) throw err;
-
+        res.write('{');
         for (var i in rows) {
-            res.write(JSON.stringify({i: rows[i]}));
-			console.log('Rows: ', rows[i]);
+            if(i<rows.length-1){
+              //print first with comma
+              res.write('"response' + i + '": ');
+              res.write(JSON.stringify(rows[i]) +',');
+            }else{
+              //print last with no comma
+              res.write('"response' + i + '": ');
+              res.write(JSON.stringify(rows[i]));
+            }            
+			      console.log('Rows: ', rows[i]);
         }
+        res.write('}');
 		res.end();
     });
 	

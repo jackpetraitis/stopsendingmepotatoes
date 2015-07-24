@@ -22,7 +22,7 @@
             </div>
             <div class="collapse navbar-collapse colorMeBadd" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>{{#link-to 'Potatoes'}}Potatoes{{/link-to}}</li>
+                    <li>{{#link-to 'potatoes'}}Potatoes{{/link-to}}</li>
                     <li>{{#link-to 'why'}}Why{{/link-to}}</li>
                     <li><a href="http://create.stopsendingmepotatoes.com">Create</a></li>
                 </ul>
@@ -37,16 +37,17 @@
      </div>
   </script>
 
-  <script type="text/x-handlebars" id="Potatoes">
+  <script type="text/x-handlebars" id="potatoes">
       <div class="container-fluid">
           <div class="row-fluid">
               <div class="span3">
                   <table class='table'>
                       <thead>
-                      <tr><th>Recent Potatoes</th></tr>
+                      <tr><th><h2>Recent Potatoes</h2></th></tr>
                       </thead>
 
                       <tbody>
+                      {{#each potato}}
                       <tr>
                           <td>
                               {{#link-to 'Potatoe' this}}
@@ -54,80 +55,19 @@
                               {{/link-to}}
                           </td>
                       </tr>
+                      {{else}}
+                      <tr>
+                          <td>
+                              Sorry, there are no recipes available.
+                          </td>
+                      </tr>
+                      {{/each}}
                       </tbody>
                   </table>
               </div>
 
               <div class="span9">
                   {{outlet}}
-              </div>
-          </div>
-      </div>
-  </script>
-
-  <script type="text/x-handlebars" id="Potatoe">
-      <h1>{{RecipeTitle}}</h1>
-      <h2>A {{MealType}} by {{Author}} <small class='muted'>(Sent to me: {{DateReceived}})</small></h2>
-
-      <hr>
-
-      <div class="uselessInformation">
-          <h6>Cooking Method: {{CookingMethod}}</h6>
-          <h5>Communication Method: {{SourceFormat}}</h5>
-          <h5>Sourced From: {{SourceInformation}}</h5>
-          <h6>Prep Time: {{PrepTime}} minutes - CookTime {{CookTime}} minutes - ServingYield - {{ServingYield}} servings</h6>
-      </div>
-
-      <hr>
-
-      <div class='intro'>
-          <h3>Ingredients:</h3>
-          {{Ingredients}}
-      </div>
-
-      <div class='below-the-fold'>
-          <h3>Instructions:</h3>
-          {{Instructions}}
-      </div>
-  </script>
-
-  <script type="text/x-handlebars" id="create">
-      <div class="row-fluid">
-          <div class="span12">
-              <div class='create headieParagraphs'>
-                  <p>Create a recipe here my friend.</p>
-                  <br>
-                  <h3>Meal Type Test:</h3>
-                  <p>{{input type="text" value=MealType}}</p>
-                  <br>
-                  <h3>Recipe Title:</h3>
-                  <p>{{input type="text" value=RecipeTitle}}</p>
-                  <br>
-                  <h3>Prep Time:</h3>
-                  <p>{{input type="number" value=PrepTime}}</p>
-                  <br>
-                  <h3>Cook Time:</h3>
-                  <p>{{input type="number" value=CookTime}}</p>
-                  <br>
-                  <h3>Serving Yield:</h3>
-                  <p>{{input type="number" value=ServingYield}}</p>
-                  <br>
-                  <h3>Source Format:</h3>
-                  <p>{{input type="text" value=SourceFormat}}</p>
-                  <br>
-                  <h3>Source Information:</h3>
-                  <p>{{input type="text" value=SourceInformation}}</p>
-                  <br>
-                  <h3>Ingredients:</h3>
-                  <p>{{textarea type="text" value=Ingredients}}</p>
-                  <br>
-                  <h3>Instructions:</h3>
-                  <p>{{textarea type="text" value=Instructions}}</p>
-                  <br>
-                  <h3>Cooking Method:</h3>
-                  <p>{{input type="text" value=CookingMethod}}</p>
-                  <br>
-                  <button {{action 'submitRecipe'}}>Submit</button>
               </div>
           </div>
       </div>

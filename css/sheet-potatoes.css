@@ -10,10 +10,15 @@ body{
 .outletForAnger{
     background-color: #f8f8f8;
     height: 100%;
+    width: 66%;
+    border-radius: 6px;
 }
 
 .colorMeBadd > ul > li > a {
     color: #FFFFFF;
+}
+.colorMeBadd > ul > li:hover > a {
+    color: #254560;
 }
 
 .colorMyHead {
